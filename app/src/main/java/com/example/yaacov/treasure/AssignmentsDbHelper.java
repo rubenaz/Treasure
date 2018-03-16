@@ -16,9 +16,9 @@ public class AssignmentsDbHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + Constants.treasure.TABLE_NAME + " (" +
                     Constants.treasure._ID + " INTEGER PRIMARY KEY," +
-                    Constants.treasure.CITY_ID + " INTEGER NOT NULL UNIQUE," +
-                    Constants.treasure.LATITUDE + " INTEGER NOT NULL UNIQUE," +
-                    Constants.treasure.LONGTITUDE + " INTEGER NOT NULL UNIQUE," +
+                    Constants.treasure.CITY_ID + " INTEGER NOT NULL," +
+                    Constants.treasure.LATITUDE + " INTEGER NOT NULL," +
+                    Constants.treasure.LONGTITUDE + " INTEGER NOT NULL," +
                     Constants.treasure.HINT + " TEXT NOT NULL," +
                     Constants.treasure.PLACE_NAME + " TEXT NOT NULL" +
                     ");";

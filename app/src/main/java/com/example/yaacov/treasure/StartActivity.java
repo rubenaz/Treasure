@@ -32,7 +32,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        btnSign = (Button) findViewById(R.id.btnSign);
+        btnSign = findViewById(R.id.btnSign);
         btnSign.setOnClickListener(this);
 
         dbHelper = new AssignmentsDbHelper(this);

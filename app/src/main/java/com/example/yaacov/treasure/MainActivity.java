@@ -2,7 +2,6 @@ package com.example.yaacov.treasure;
 
 import android.Manifest;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -33,7 +32,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Vector;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
     final String MY_PREFS_NAME="prfes";
     SharedPreferences prefs;
     int numOfPart=0,cityId=1;
@@ -47,7 +46,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     GoogleApiClient mGoogleApiClient;
     LocationRequest mLocationRequest;
     Location mCurrentLocation;
+    Location hintLocation;
     String mLastUpdateTime;
+    LocationListener locationListener;
 
     //UI
     Button openHint;
@@ -67,6 +68,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             phoneNumbers[i] = prefs.getString("number " + i, null);
         }
         places = new Vector<>();
+        extractPlacesFromDB();
+
+        hint = findViewById(R.id.textHint);
+        openHint = findViewById(R.id.btnHint);
+        openHint.setOnClickListener(this);
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                mCurrentLocation = location;
+                mLastUpdateTime = DateFormat.getTimeInstance().format(new Date());
+                Log.v("location",location.toString());
+                Log.v("hint place",places.elementAt(hintCount).toString());
+                //TODO equal currentLocation to hint location,sen sms to other groups,then open new hint, if end say congrats
+                float distance;
+                if(hintLocation != null) {
+                    distance = hintLocation.distanceTo(mCurrentLocation);
+                    Log.v("distance", distance + "");
+                    if(distance<100){//got to the current place
+                        sendSmsToAllParticipants();
+                        hintCount++;
+                        if(hintCount==places.size()){
+                            goToFinish();
+                        }
+                        else {
+                            hint.setText("פתח את הרמז הבא");
+                            openHint.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+
+
+            }
+        };
+        if (mGoogleApiClient == null) {
+            mGoogleApiClient = new GoogleApiClient.Builder(this)
+                    .addConnectionCallbacks(this)
+                    .addOnConnectionFailedListener(this)
+                    .addApi(LocationServices.API)
+                    .build();
+        }
+        this.createLocationRequest();
+    }
+
+    private void extractPlacesFromDB(){
         db = dbHelper.getReadableDatabase();
         String [] projection = {Constants.treasure.LATITUDE,Constants.treasure.LONGTITUDE,Constants.treasure.HINT,Constants.treasure.PLACE_NAME};
 
@@ -84,21 +129,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         c.close();
         db.close();
-
-        hint = (TextView)findViewById(R.id.textHint);
-        openHint = (Button) findViewById(R.id.btnHint);
-        openHint.setOnClickListener(this);
+    }
+    @Override
+    public void onClick(View v) {//click on open hint
+        hint.setText(places.get(hintCount).getHint());
+        hintLocation = createNewLocation(places.elementAt(hintCount).getLongt(),places.elementAt(hintCount).getLat());
+        openHint.setVisibility(View.INVISIBLE);
     }
 
-    @Override
-    public void onClick(View v) {
-        hint.setText(places.get(hintCount).getHint());
+    private void goToFinish(){
+        Intent i = new Intent(this, finishActivity.class);
+        startActivity(i);
+    }
+    private String countIntToString(int hintCount){
+        if(hintCount==1){
+            return "1st";
+        }
+        else if(hintCount==2){
+            return "2nd";
+        }
+        else if(hintCount==3){
+            return "3rd";
+        }
+        else
+            return hintCount + "th";
+    }
+
+    private void sendSmsToAllParticipants(){
+        for(String number : phoneNumbers){
+            if(hintCount==places.size()-1)
+                sendSMS(number,"Our team got to last location!");
+            else
+                sendSMS(number,"Our team got to " + countIntToString(hintCount+1) + " hint");
+        }
     }
 
     private void sendSMS(String phoneNumber, String message) {
         try {
-            Log.v("phoneNumber",phoneNumber);
-            Log.v("MEssage",message);
             PendingIntent pi = PendingIntent.getActivity(this, 0,
                     new Intent(this, Object.class), 0);
             SmsManager sms = SmsManager.getDefault();
@@ -111,11 +178,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //===================================Location==========================================
 
 
+    Location createNewLocation(double longitude, double latitude) {
+        Location location = new Location("dummyprovider");
+        location.setLongitude(longitude);
+        location.setLatitude(latitude);
+        return location;
+    }
     //@Override
     public void onConnected(@Nullable Bundle bundle) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
        //     LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
-       //     LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
+            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, locationListener);
         } else {
             Toast.makeText(this, "No permissions", Toast.LENGTH_SHORT).show();
         }
@@ -144,17 +217,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     protected void createLocationRequest() {
         mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(600*100);
+        mLocationRequest.setInterval(60*100);
         mLocationRequest.setSmallestDisplacement(10);
-        mLocationRequest.setFastestInterval(1000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
     }
 
 
    // @Override
-    public void onLocationChanged(Location location) {
+    /*public void onLocationChanged(Location location) {
         mCurrentLocation = location;
         mLastUpdateTime = DateFormat.getTimeInstance().format(new Date());
        // sendSMS(phone.getText().toString(), "I got more then 10m closer to you");
+    }*/
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }
