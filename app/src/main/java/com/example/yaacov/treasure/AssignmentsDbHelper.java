@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 public class AssignmentsDbHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 3 ;
     public static final String DATABASE_NAME = "treasure.db";
 
     public AssignmentsDbHelper(Context context){
@@ -39,6 +39,10 @@ public class AssignmentsDbHelper extends SQLiteOpenHelper {
 
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
+    }
+
+    public void deleteDBContent(SQLiteDatabase db){
+        db.execSQL(SQL_DELETE_ENTRIES);
     }
 
 }

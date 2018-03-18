@@ -68,14 +68,14 @@ public class phonesActivity extends AppCompatActivity implements AdapterView.OnI
             for (int i = 0; i < position; i++) {
                 LinearLayout phoneLayout = new LinearLayout(this);
                 phoneLayout.setOrientation(LinearLayout.HORIZONTAL);
-                phoneLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 100));
+                phoneLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 200));
                 EditText phone = new EditText(this);
                 phone.setInputType(InputType.TYPE_CLASS_PHONE);
                 vectorEditText.add(phone);
                 phone.setId(1000+i);
-                phone.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 100));
+                phone.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 200));
                 TextView phoneLabel = new TextView(this);
-                phoneLabel.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 100));
+                phoneLabel.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 200));
                 phoneLabel.setText((i + 1) + "");
                 phoneLayout.addView(phoneLabel);
                 phoneLayout.addView(phone);

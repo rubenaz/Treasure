@@ -1,7 +1,11 @@
 package com.example.yaacov.treasure;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -15,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -53,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //UI
     Button openHint;
     TextView hint;
+    TextView txtInstructions;
 
 
     @Override
@@ -64,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cityId = prefs.getInt("CityId" , 1);
         dbHelper = new AssignmentsDbHelper(this);
         phoneNumbers = new String[numOfPart];
+
         for(int i=0;i<numOfPart;i++) {
             phoneNumbers[i] = prefs.getString("number " + i, null);
         }
@@ -71,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         extractPlacesFromDB();
 
         hint = findViewById(R.id.textHint);
+        txtInstructions = findViewById(R.id.txtInstructions);
         openHint = findViewById(R.id.btnHint);
         openHint.setOnClickListener(this);
         locationListener = new LocationListener() {
@@ -78,13 +86,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onLocationChanged(Location location) {
                 mCurrentLocation = location;
                 mLastUpdateTime = DateFormat.getTimeInstance().format(new Date());
-                Log.v("location",location.toString());
-                Log.v("hint place",places.elementAt(hintCount).toString());
-                //TODO equal currentLocation to hint location,sen sms to other groups,then open new hint, if end say congrats
+                //Log.v("location",location.toString());
+                //Log.v("hint place",places.elementAt(hintCount).toString());
                 float distance;
                 if(hintLocation != null) {
                     distance = hintLocation.distanceTo(mCurrentLocation);
-                    Log.v("distance", distance + "");
+                    //Log.v("distance", distance + "");
                     if(distance<100){//got to the current place
                         sendSmsToAllParticipants();
                         hintCount++;
@@ -92,7 +99,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             goToFinish();
                         }
                         else {
-                            hint.setText("פתח את הרמז הבא");
+                            txtInstructions.setText("פתח את הרמז הבא");
+                            txtInstructions.setVisibility(View.VISIBLE);
+                            hint.setVisibility(View.INVISIBLE);
                             openHint.setVisibility(View.VISIBLE);
                         }
                     }
@@ -118,8 +127,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Cursor c = db.query(
                 Constants.treasure.TABLE_NAME, // The table to query
                 projection ,               // The columns to return
-                null,                // WHERE clause
-                null,                // The values for the WHERE clause
+                "city_id=?",                // WHERE clause
+                new String[] { cityId + "" },                // The values for the WHERE clause
                 null,                //  group the rows
                 null,                // filter by row groups
                 null                 // The sort order
@@ -133,8 +142,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {//click on open hint
         hint.setText(places.get(hintCount).getHint());
+        hint.setVisibility(View.VISIBLE);
         hintLocation = createNewLocation(places.elementAt(hintCount).getLongt(),places.elementAt(hintCount).getLat());
         openHint.setVisibility(View.INVISIBLE);
+        txtInstructions.setVisibility(View.INVISIBLE);
     }
 
     private void goToFinish(){
@@ -142,25 +153,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(i);
     }
     private String countIntToString(int hintCount){
-        if(hintCount==1){
-            return "1st";
-        }
-        else if(hintCount==2){
-            return "2nd";
+        if(hintCount==2){
+            return "שני";
         }
         else if(hintCount==3){
-            return "3rd";
+            return "שלישי";
         }
         else
-            return hintCount + "th";
+            return  "רביעי";
     }
 
     private void sendSmsToAllParticipants(){
         for(String number : phoneNumbers){
             if(hintCount==places.size()-1)
-                sendSMS(number,"Our team got to last location!");
+                sendSMS(number,"הגענו לנקודת הסיום!");
             else
-                sendSMS(number,"Our team got to " + countIntToString(hintCount+1) + " hint");
+                sendSMS(number,"הקבוצה הגיעה לרמז ה" + countIntToString(hintCount+2));
         }
     }
 
@@ -234,4 +242,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            DialogFragment newFragment = new DialogClass();
+            newFragment.show(getFragmentManager(),"dialog");
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+
+    }
 }
+
