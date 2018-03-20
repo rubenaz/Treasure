@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 projection ,               // The columns to return
                 "city_id=?",                // WHERE clause
                 new String[] { cityId + "" },                // The values for the WHERE clause
-                null,                //  group the rows
+                null,                //  group the row
                 null,                // filter by row groups
                 null                 // The sort order
         );
