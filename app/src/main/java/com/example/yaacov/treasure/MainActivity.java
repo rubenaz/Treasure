@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void goToFinish(){
-        Intent i = new Intent(this, finishActivity.class);
+        Intent i = new Intent(this, FinishActivity.class);
         startActivity(i);
     }
     private String countIntToString(int hintCount){

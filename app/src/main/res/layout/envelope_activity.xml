@@ -4,21 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.yaacov.treasure.envelopeActivity">
+    tools:context="com.example.yaacov.treasure.EnvelopeActivity">
 
     <Chronometer
         android:id="@+id/elpasedTime"
         android:layout_width="120dp"
         android:layout_height="45dp"
         tools:layout_editor_absoluteX="132dp"
-        tools:layout_editor_absoluteY="32dp" />
+        tools:layout_editor_absoluteY="32dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="183dp"
         android:layout_height="43dp"
-        android:text="פתח רמז"
+        android:text="@string/open_hint"
         tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="178dp" />
+        tools:layout_editor_absoluteY="178dp"
+        tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>

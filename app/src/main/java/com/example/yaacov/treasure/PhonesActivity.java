@@ -1,40 +1,36 @@
 package com.example.yaacov.treasure;
 
-import android.Manifest;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.yaacov.treasure.R;
+
 
 
 import java.util.Vector;
 
-public class phonesActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+public class PhonesActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
-    Button btnStart;
+    private Button btnStart;
     int numberOfPlayers=1;
-    LinearLayout linearPhones;
+    public LinearLayout linearPhones;
     //SharedPreferences sharedPref;
-    SharedPreferences.Editor editor;
-    Spinner numOfPartSpinner,citySpinner;
-    Vector<EditText> vectorEditText=new Vector<>();
-    final String MY_PREFS_NAME="prfes";
+    private SharedPreferences.Editor editor;
+    private Spinner numOfPartSpinner,citySpinner;
+    private Vector<EditText> vectorEditText=new Vector<>();
+    final private String MY_PREFS_NAME="prfes";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,8 +85,9 @@ public class phonesActivity extends AppCompatActivity implements AdapterView.OnI
         }
     }
 
+    @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-        return;
+
     }
 
     @Override

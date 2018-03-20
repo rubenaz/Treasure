@@ -18,7 +18,7 @@ import android.widget.Button;
 public class StartActivity extends AppCompatActivity implements View.OnClickListener{
     final private int MY_PERMISSIONS_REQUEST_LOCATION=1;
     final private int MY_PERMISSIONS_REQUEST_SMS=2;
-    public Button btnSign;
+    public  Button btnSign;
     private AssignmentsDbHelper dbHelper;
     private SQLiteDatabase db;
     public long id;
@@ -26,7 +26,6 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start);
         btnSign = findViewById(R.id.btnSign);
         btnSign.setOnClickListener(this);
 
@@ -266,7 +265,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        Intent i = new Intent(this, phonesActivity.class);
+        Intent i = new Intent(this, PhonesActivity.class);
         startActivity(i);
     }
 }

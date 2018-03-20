@@ -42,7 +42,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="80dp"
-        android:text="לחץ על המעטפה לפתיחת הרמז"
+        android:text="@string/remez"
         android:textAlignment="center"
         android:textColor="@color/colorLight"
         android:textSize="18sp"

@@ -29,9 +29,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.yaacov.treasure.MainActivity" />
-        <activity android:name="com.example.yaacov.treasure.phonesActivity" />
-        <activity android:name="com.example.yaacov.treasure.envelopeActivity" />
-        <activity android:name="com.example.yaacov.treasure.finishActivity" />
+        <activity android:name="com.example.yaacov.treasure.PhonesActivity" />
+        <activity android:name="com.example.yaacov.treasure.EnvelopeActivity" />
+        <activity android:name="com.example.yaacov.treasure.FinishActivity" />
 
         <meta-data
             android:name="android.support.VERSION"

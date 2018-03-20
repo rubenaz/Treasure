@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.yaacov.treasure.phonesActivity">
+    tools:context="com.example.yaacov.treasure.PhonesActivity">
 
     <ScrollView
         android:layout_width="380dp"
@@ -60,7 +60,8 @@
                 app:layout_constraintBottom_toTopOf="@+id/btnStart"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/numOfPartSpinner">
+                app:layout_constraintTop_toBottomOf="@+id/numOfPartSpinner"
+                tools:ignore="NotSibling">
 
                 <LinearLayout
                     android:id="@+id/linearPhones"
@@ -124,7 +125,7 @@
                         android:width="100dp"
                         android:height="20dp"
                         android:gravity="start"
-                        android:text="מספר משתתפים"
+                        android:text="@string/num_of_players"
                         android:textAlignment="textStart"
                         tools:layout_editor_absoluteY="148dp" />
                 </TableRow>
@@ -158,7 +159,7 @@
                         android:width="100dp"
                         android:height="20dp"
                         android:gravity="start"
-                        android:text="עיר"
+                        android:text="@string/city"
                         android:textAlignment="textStart"
                         tools:layout_editor_absoluteY="148dp" />
                 </TableRow>
