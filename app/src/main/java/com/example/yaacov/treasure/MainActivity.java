@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LocationRequest mLocationRequest;
     private Location mCurrentLocation;
     private Location hintLocation;
-    String mLastUpdateTime;
+    public String mLastUpdateTime;
     private LocationListener locationListener;
 
     //UI
