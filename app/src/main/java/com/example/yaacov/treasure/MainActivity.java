@@ -35,7 +35,7 @@ import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
     final private  String MY_PREFS_NAME="prfes";
-    private SharedPreferences prefs;
+    public SharedPreferences prefs;
     public int numOfPart=0,cityId=1;
     private String[] phoneNumbers;
     private SQLiteDatabase db;
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         location.setLatitude(latitude);
         return location;
     }
-    //@Override
+    @Override
     public void onConnected(@Nullable Bundle bundle) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
        //     LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
@@ -198,12 +198,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    //@Override
+    @Override
     public void onConnectionSuspended(int i) {
 
     }
 
-   // @Override
+    @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
