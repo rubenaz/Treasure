@@ -1,11 +1,8 @@
 package com.example.yaacov.treasure;
 
 import android.Manifest;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.PendingIntent;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -18,7 +15,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -38,11 +34,11 @@ import java.util.Date;
 import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
-    final String MY_PREFS_NAME="prfes";
+    final private  String MY_PREFS_NAME="prfes";
     SharedPreferences prefs;
-    int numOfPart=0,cityId=1;
-    String[] phoneNumbers;
-    SQLiteDatabase db;
+    private int numOfPart=0,cityId=1;
+    private String[] phoneNumbers;
+    private SQLiteDatabase db;
     AssignmentsDbHelper dbHelper;
     Vector<Place> places;
     int hintCount=0;
@@ -50,8 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //Location
     GoogleApiClient mGoogleApiClient;
     LocationRequest mLocationRequest;
-    Location mCurrentLocation;
-    Location hintLocation;
+    private Location mCurrentLocation;
+    private Location hintLocation;
     String mLastUpdateTime;
     LocationListener locationListener;
 

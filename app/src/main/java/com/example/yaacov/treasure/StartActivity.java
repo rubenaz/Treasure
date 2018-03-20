@@ -93,7 +93,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
             Log.v("SqlException:",e.toString());
         }
 
-        /*values.put(Constants.treasure.CITY_ID,1);
+        values.put(Constants.treasure.CITY_ID,1);
         values.put(Constants.treasure.LATITUDE,31.776863659535742);
         values.put(Constants.treasure.LONGTITUDE,35.20562678575516);
         values.put(Constants.treasure.HINT,"בית המחוקקים והנבחרים של מדינת ישראל");
@@ -124,7 +124,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
             id = db.insert(Constants.treasure.TABLE_NAME, null, values);
         }catch(android.database.sqlite.SQLiteConstraintException e){
             Log.v("SqlException:",e.toString());
-        }*/
+        }
 
         //Tel-Aviv
         values.put(Constants.treasure.CITY_ID,2);
