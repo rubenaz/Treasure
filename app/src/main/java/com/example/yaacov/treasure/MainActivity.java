@@ -36,7 +36,7 @@ import java.util.Vector;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
     final private  String MY_PREFS_NAME="prfes";
     private SharedPreferences prefs;
-    private int numOfPart=0,cityId=1;
+    public int numOfPart=0,cityId=1;
     private String[] phoneNumbers;
     private SQLiteDatabase db;
     private AssignmentsDbHelper dbHelper;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //Location
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
-    private Location mCurrentLocation;
+    public Location mCurrentLocation;
     private Location hintLocation;
     public String mLastUpdateTime;
     private LocationListener locationListener;
