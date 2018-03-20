@@ -7,22 +7,22 @@
     format="10"
     ir-eligibility="FIELD_TYPE_CHANGE"
     plugin-version="3.0.1"
-    timestamp="1521556597817"
+    timestamp="1521557455270"
     token="317333334203091344"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="396" />
+        duration="956" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="15" />
+        duration="42" />
     <task
         name="verifier"
-        duration="3" />
+        duration="6" />
 
     <artifact
         location="C:\Users\yaacov\AndroidStudioProjects\Treasure\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
@@ -72,7 +72,7 @@
     <build
         build-mode="COLD"
         ir-eligibility="FIELD_TYPE_CHANGE"
-        timestamp="1521556597817"
+        timestamp="1521557455270"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\yaacov\AndroidStudioProjects\Treasure\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
