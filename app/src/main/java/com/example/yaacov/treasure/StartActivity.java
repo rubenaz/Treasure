@@ -18,10 +18,10 @@ import android.widget.Button;
 public class StartActivity extends AppCompatActivity implements View.OnClickListener{
     final private int MY_PERMISSIONS_REQUEST_LOCATION=1;
     final private int MY_PERMISSIONS_REQUEST_SMS=2;
-    private Button btnSign;
+    public Button btnSign;
     private AssignmentsDbHelper dbHelper;
     private SQLiteDatabase db;
-    private long id;
+    public long id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
