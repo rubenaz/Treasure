@@ -1775,7 +1775,7 @@
         <item>תל אביב</item>
         <item>פריז</item>
         <item>ברצלונה</item>
-    </string-array></file><file path="C:\Users\yaacov\AndroidStudioProjects\Treasure\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </string-array><string name="remez">לחץ על המעטפה לפתיחת הרמז</string><string name="open_hint">פתח רמז</string><string name="city">עיר</string><string name="subscribe">הרשמה</string><string name="num_of_players">מספר משתתפים</string><string name="enter_phone">Enter Phone</string></file><file path="C:\Users\yaacov\AndroidStudioProjects\Treasure\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

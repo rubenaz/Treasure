@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public SharedPreferences prefs;
     public int numOfPart=0,cityId=1;
     private String[] phoneNumbers;
-    private SQLiteDatabase db;
+    public SQLiteDatabase db;
     private AssignmentsDbHelper dbHelper;
     private Vector<Place> places;
     private int hintCount=0;
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //===================================Location==========================================
 
 
-    Location createNewLocation(double longitude, double latitude) {
+   public Location createNewLocation(double longitude, double latitude) {
         Location location = new Location("dummyprovider");
         location.setLongitude(longitude);
         location.setLatitude(latitude);

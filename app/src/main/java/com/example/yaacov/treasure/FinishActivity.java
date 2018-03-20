@@ -11,9 +11,9 @@ import android.widget.TextView;
 import com.example.yaacov.treasure.R;
 
 public class FinishActivity extends AppCompatActivity {
-    private TextView title;
-    private String cityName ="";
-    private int cityId=1;
+    public TextView title;
+    public String cityName ="";
+    public int cityId=1;
     final private String MY_PREFS_NAME="prfes";
     public SharedPreferences prefs;
     @Override

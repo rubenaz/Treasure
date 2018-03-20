@@ -19,8 +19,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     final private int MY_PERMISSIONS_REQUEST_LOCATION=1;
     final private int MY_PERMISSIONS_REQUEST_SMS=2;
     public  Button btnSign;
-    private AssignmentsDbHelper dbHelper;
-    private SQLiteDatabase db;
+    public AssignmentsDbHelper dbHelper;
+    public SQLiteDatabase db;
     public long id;
 
     @Override

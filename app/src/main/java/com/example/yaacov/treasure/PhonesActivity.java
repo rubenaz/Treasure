@@ -23,13 +23,13 @@ import java.util.Vector;
 
 public class PhonesActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
-    private Button btnStart;
-    int numberOfPlayers=1;
+    public Button btnStart;
+    private int numberOfPlayers=1;
     public LinearLayout linearPhones;
     //SharedPreferences sharedPref;
-    private SharedPreferences.Editor editor;
-    private Spinner numOfPartSpinner,citySpinner;
-    private Vector<EditText> vectorEditText=new Vector<>();
+    public SharedPreferences.Editor editor;
+    public Spinner numOfPartSpinner,citySpinner;
+    public Vector<EditText> vectorEditText=new Vector<>();
     final private String MY_PREFS_NAME="prfes";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
