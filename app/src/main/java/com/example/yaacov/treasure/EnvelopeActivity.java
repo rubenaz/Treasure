@@ -3,9 +3,7 @@ package com.example.yaacov.treasure;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.yaacov.treasure.R;
-
-public class envelopeActivity extends AppCompatActivity {
+public class EnvelopeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

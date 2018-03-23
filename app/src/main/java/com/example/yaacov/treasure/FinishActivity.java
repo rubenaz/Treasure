@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.yaacov.treasure.R;
 
-public class finishActivity extends AppCompatActivity {
+public class FinishActivity extends AppCompatActivity {
     TextView title;
     String cityName ="";
     int cityId=1;

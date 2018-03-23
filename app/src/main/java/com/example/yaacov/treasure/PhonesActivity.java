@@ -25,12 +25,11 @@ import com.example.yaacov.treasure.R;
 
 import java.util.Vector;
 
-public class phonesActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+public class PhonesActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
     Button btnStart;
     int numberOfPlayers=1;
     LinearLayout linearPhones;
-    //SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     Spinner numOfPartSpinner,citySpinner;
     Vector<EditText> vectorEditText=new Vector<>();
@@ -39,18 +38,17 @@ public class phonesActivity extends AppCompatActivity implements AdapterView.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phones);
-        //sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         editor= getSharedPreferences(MY_PREFS_NAME,Context.MODE_PRIVATE).edit();
-        linearPhones = (LinearLayout) findViewById(R.id.linearPhones);
-        numOfPartSpinner = (Spinner) findViewById(R.id.numOfPartSpinner);
+        linearPhones = findViewById(R.id.linearPhones);
+        numOfPartSpinner = findViewById(R.id.numOfPartSpinner);
         numOfPartSpinner.setOnItemSelectedListener(this);
-        btnStart=(Button)findViewById(R.id.btnStart);
+        btnStart=findViewById(R.id.btnStart);
         btnStart.setOnClickListener(this);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.number_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         numOfPartSpinner.setAdapter(adapter);
-        citySpinner = (Spinner) findViewById(R.id.citySpinner);
+        citySpinner =  findViewById(R.id.citySpinner);
         citySpinner.setOnItemSelectedListener(this);
         ArrayAdapter<CharSequence> adapterCities = ArrayAdapter.createFromResource(this,
                 R.array.cities_array, android.R.layout.simple_spinner_item);

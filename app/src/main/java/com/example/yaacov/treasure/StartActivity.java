@@ -271,7 +271,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        Intent i = new Intent(this, phonesActivity.class);
+        Intent i = new Intent(this, PhonesActivity.class);
         startActivity(i);
     }
 }

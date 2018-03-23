@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\User\\AndroidStudioProjects\\Treasure\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\User\\Desktop\\android\\Treasure\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\7f85043ebc5f7115db5197bbd7b13b01\\res\\values\\values.xml",
@@ -23,7 +23,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\AndroidStudioProjects\\Treasure\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\User\\Desktop\\android\\Treasure\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "4,6,2,3,5",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "157,254,57,105,204",
+                        "endColumns": "45,44,46,50,48",
+                        "endOffsets": "198,294,99,151,248"
+                    },
+                    "to": {
+                        "startLines": "134,135,136,137,138",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "6654,6700,6745,6792,6843",
+                        "endColumns": "45,44,46,50,48",
+                        "endOffsets": "6695,6740,6787,6838,6887"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\User\\Desktop\\android\\Treasure\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "12,2,1",
                         "startColumns": "4,4,4",
@@ -42,7 +59,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\AndroidStudioProjects\\Treasure\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\Users\\User\\Desktop\\android\\Treasure\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "3,10,23,17",
                         "startColumns": "4,4,4,4",
@@ -58,23 +75,6 @@
                         "endLines": "599,605,1793,1798",
                         "endColumns": "12,12,12,12",
                         "endOffsets": "53229,53571,130047,130255"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\User\\AndroidStudioProjects\\Treasure\\app\\src\\main\\res\\values\\colors.xml",
-                    "from": {
-                        "startLines": "4,6,2,3,5",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "157,254,57,105,204",
-                        "endColumns": "45,44,46,50,48",
-                        "endOffsets": "198,294,99,151,248"
-                    },
-                    "to": {
-                        "startLines": "134,135,136,137,138",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "6654,6700,6745,6792,6843",
-                        "endColumns": "45,44,46,50,48",
-                        "endOffsets": "6695,6740,6787,6838,6887"
                     }
                 },
                 {
