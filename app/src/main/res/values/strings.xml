@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">FindTheTreasure</string>
+    <string name="openDescription">לחץ על המעטפה לפתיחת הרמז</string>
+    <string name="sign">הרשמה</string>
+    <string name="start">התחל</string>
+    <string name="numOfParticipates">מספר משתתפים</string>
+    <string name="city">עיר</string>
     <string-array name="number_array">
         <item>1</item>
         <item>2</item>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.yaacov.treasure.phonesActivity">
+    tools:context="com.example.yaacov.treasure.PhonesActivity">
 
     <ScrollView
         android:layout_width="380dp"
@@ -29,7 +29,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
-                android:text="הרשמה"
+                android:text="@string/sign"
                 android:textAlignment="center"
                 android:textSize="36sp"
                 android:textStyle="bold"
@@ -44,7 +44,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:text="התחל"
+                android:text="@string/start"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent" />
@@ -124,7 +124,7 @@
                         android:width="100dp"
                         android:height="20dp"
                         android:gravity="start"
-                        android:text="מספר משתתפים"
+                        android:text="@string/numOfParticipates"
                         android:textAlignment="textStart"
                         tools:layout_editor_absoluteY="148dp" />
                 </TableRow>
@@ -158,7 +158,7 @@
                         android:width="100dp"
                         android:height="20dp"
                         android:gravity="start"
-                        android:text="עיר"
+                        android:text="@string/city"
                         android:textAlignment="textStart"
                         tools:layout_editor_absoluteY="148dp" />
                 </TableRow>

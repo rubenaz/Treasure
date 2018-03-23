@@ -30,7 +30,6 @@
         </activity>
         <activity android:name="com.example.yaacov.treasure.MainActivity" />
         <activity android:name="com.example.yaacov.treasure.PhonesActivity" />
-        <activity android:name="com.example.yaacov.treasure.EnvelopeActivity" />
         <activity android:name="com.example.yaacov.treasure.FinishActivity" />
 
         <meta-data
