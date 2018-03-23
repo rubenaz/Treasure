@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.example.yaacov.treasure.R;
 
-public class EnvelopeActivity extends AppCompatActivity {
+public class envelopeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

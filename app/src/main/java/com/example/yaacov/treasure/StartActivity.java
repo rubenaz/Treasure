@@ -1,31 +1,37 @@
 package com.example.yaacov.treasure;
 
 import android.Manifest;
+import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabaseCorruptException;
+import android.database.sqlite.SQLiteException;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ButtonBarLayout;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
+import android.widget.Toast;
 
 
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener{
-    final private int MY_PERMISSIONS_REQUEST_LOCATION=1;
-    final private int MY_PERMISSIONS_REQUEST_SMS=2;
-    public  Button btnSign;
-    public AssignmentsDbHelper dbHelper;
-    public SQLiteDatabase db;
-    public long id;
+    final int MY_PERMISSIONS_REQUEST_LOCATION=1;
+    final int MY_PERMISSIONS_REQUEST_SMS=2;
+    Button btnSign;
+    AssignmentsDbHelper dbHelper;
+    SQLiteDatabase db;
+    long id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_start);
         btnSign = findViewById(R.id.btnSign);
         btnSign.setOnClickListener(this);
 
@@ -265,7 +271,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        Intent i = new Intent(this, PhonesActivity.class);
+        Intent i = new Intent(this, phonesActivity.class);
         startActivity(i);
     }
 }

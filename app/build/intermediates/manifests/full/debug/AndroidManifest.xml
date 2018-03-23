@@ -19,6 +19,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/Theme.AppCompat.NoActionBar" >
         <activity android:name="com.example.yaacov.treasure.StartActivity" >
             <intent-filter>
@@ -28,9 +29,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.yaacov.treasure.MainActivity" />
-        <activity android:name="com.example.yaacov.treasure.PhonesActivity" />
-        <activity android:name="com.example.yaacov.treasure.EnvelopeActivity" />
-        <activity android:name="com.example.yaacov.treasure.FinishActivity" />
+        <activity android:name="com.example.yaacov.treasure.phonesActivity" />
+        <activity android:name="com.example.yaacov.treasure.envelopeActivity" />
+        <activity android:name="com.example.yaacov.treasure.finishActivity" />
 
         <meta-data
             android:name="android.support.VERSION"

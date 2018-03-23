@@ -21,9 +21,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".PhonesActivity" />
-        <activity android:name=".EnvelopeActivity" />
-        <activity android:name=".FinishActivity"></activity>
+        <activity android:name=".phonesActivity" />
+        <activity android:name=".envelopeActivity" />
+        <activity android:name=".finishActivity"></activity>
     </application>
 
 </manifest>

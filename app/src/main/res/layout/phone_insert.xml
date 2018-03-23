@@ -9,7 +9,7 @@
         android:layout_width="242dp"
         android:layout_height="65dp"
         android:inputType="phone"
-        android:text="@string/enter_phone" />
+        android:text="Enter Phone" />
 
     <TextView
         android:id="@+id/numberText"

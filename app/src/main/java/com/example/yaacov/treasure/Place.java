@@ -2,9 +2,9 @@ package com.example.yaacov.treasure;
 
 public class Place {
 
-    private String hint;
-    private String name;
-    private float lat,longt;
+    String hint;
+    String name;
+    float lat,longt;
 
     public Place(float lat,float longt,String hint,String name){
         this.lat = lat;

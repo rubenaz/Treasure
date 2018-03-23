@@ -1,8 +1,11 @@
 package com.example.yaacov.treasure;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -15,6 +18,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -34,27 +38,27 @@ import java.util.Date;
 import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
-    final private  String MY_PREFS_NAME="prfes";
-    public SharedPreferences prefs;
-    public int numOfPart=0,cityId=1;
-    private String[] phoneNumbers;
-    public SQLiteDatabase db;
-    private AssignmentsDbHelper dbHelper;
-    private Vector<Place> places;
-    private int hintCount=0;
+    final String MY_PREFS_NAME="prfes";
+    SharedPreferences prefs;
+    int numOfPart=0,cityId=1;
+    String[] phoneNumbers;
+    SQLiteDatabase db;
+    AssignmentsDbHelper dbHelper;
+    Vector<Place> places;
+    int hintCount=0;
 
     //Location
-    private GoogleApiClient mGoogleApiClient;
-    private LocationRequest mLocationRequest;
-    public Location mCurrentLocation;
-    private Location hintLocation;
-    public String mLastUpdateTime;
-    private LocationListener locationListener;
+    GoogleApiClient mGoogleApiClient;
+    LocationRequest mLocationRequest;
+    Location mCurrentLocation;
+    Location hintLocation;
+    String mLastUpdateTime;
+    LocationListener locationListener;
 
     //UI
-    private  Button openHint;
-    private TextView hint;
-    private TextView txtInstructions;
+    Button openHint;
+    TextView hint;
+    TextView txtInstructions;
 
 
     @Override
@@ -125,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 projection ,               // The columns to return
                 "city_id=?",                // WHERE clause
                 new String[] { cityId + "" },                // The values for the WHERE clause
-                null,                //  group the row
+                null,                //  group the rows
                 null,                // filter by row groups
                 null                 // The sort order
         );
@@ -145,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void goToFinish(){
-        Intent i = new Intent(this, FinishActivity.class);
+        Intent i = new Intent(this, finishActivity.class);
         startActivity(i);
     }
     private String countIntToString(int hintCount){
@@ -182,13 +186,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //===================================Location==========================================
 
 
-   public Location createNewLocation(double longitude, double latitude) {
+    Location createNewLocation(double longitude, double latitude) {
         Location location = new Location("dummyprovider");
         location.setLongitude(longitude);
         location.setLatitude(latitude);
         return location;
     }
-    @Override
+    //@Override
     public void onConnected(@Nullable Bundle bundle) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
        //     LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
@@ -198,12 +202,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
+    //@Override
     public void onConnectionSuspended(int i) {
 
     }
 
-    @Override
+   // @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
