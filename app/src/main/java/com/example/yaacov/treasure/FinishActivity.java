@@ -11,11 +11,10 @@ import android.widget.TextView;
 import com.example.yaacov.treasure.R;
 
 public class FinishActivity extends AppCompatActivity {
-    TextView title;
-    String cityName ="";
-    int cityId=1;
-    final String MY_PREFS_NAME="prfes";
-    SharedPreferences prefs;
+    private TextView title;
+    private int cityId=1;
+    private final String MY_PREFS_NAME="prfes";
+    private SharedPreferences prefs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

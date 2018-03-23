@@ -38,27 +38,27 @@ import java.util.Date;
 import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
-    final String MY_PREFS_NAME="prfes";
-    SharedPreferences prefs;
-    int numOfPart=0,cityId=1;
-    String[] phoneNumbers;
-    SQLiteDatabase db;
-    AssignmentsDbHelper dbHelper;
-    Vector<Place> places;
-    int hintCount=0;
+    private final String MY_PREFS_NAME="prfes";
+    private SharedPreferences prefs;
+    private int numOfPart=0,cityId=1;
+    private String[] phoneNumbers;
+    private SQLiteDatabase db;
+    private AssignmentsDbHelper dbHelper;
+    private Vector<Place> places;
+    private int hintCount=0;
 
     //Location
-    GoogleApiClient mGoogleApiClient;
-    LocationRequest mLocationRequest;
-    Location mCurrentLocation;
-    Location hintLocation;
-    String mLastUpdateTime;
-    LocationListener locationListener;
+    private GoogleApiClient mGoogleApiClient;
+    private LocationRequest mLocationRequest;
+    private Location mCurrentLocation;
+    private Location hintLocation;
+    private String mLastUpdateTime;
+    private LocationListener locationListener;
 
     //UI
-    Button openHint;
-    TextView hint;
-    TextView txtInstructions;
+    private Button openHint;
+    private TextView hint;
+    private TextView txtInstructions;
 
 
     @Override
